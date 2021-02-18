@@ -1,0 +1,20 @@
+{
+  "name": "special-rocket",
+  "version": "1.0.0",
+  "description": "간단한 문게임 만들기. (그래프)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeonsoeun/special-rocket.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeonsoeun/special-rocket/issues"
+  },
+  "homepage": "https://github.com/jeonsoeun/special-rocket#readme"
+}

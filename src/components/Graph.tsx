@@ -30,26 +30,26 @@ const Graph = () => {
     const xAxis = d3.axisBottom(x);
     const yAxis = d3.axisLeft(y);
 
-    const margin = { left: 20, right: 20 };
+    const margin = { left: 50, right: 20, bottom: 20 };
 
     const svg = d3.select("#svg-chart");
 
-    const g = svg.append("g");
-    const g2 = svg.append("g");
+    const gx = svg.append("g");
+    const gy = svg.append("g");
 
     draw();
     d3.interval(draw, 1000);
     function draw() {
-      const width = innerWidth - margin.left - margin.right;
-      const height = innerHeight;
+      const width = 800;
+      const height = 500;
 
       x.domain([0, random(width * 0.25, width + width * 0.75)]).range([
         0,
         width,
       ]);
-      y.domain([0, random(width * 0.25, width + width * 0.75)]).range([
+      y.domain([0, random(height * 0.25, height + height * 0.75)]).range([
+        height,
         0,
-        width,
       ]);
 
       // const DOMAIN_WIDTH_MAX = 5;
@@ -69,14 +69,14 @@ const Graph = () => {
 
       svg
         .attr("width", width + margin.left + margin.right)
-        .attr("height", height);
+        .attr("height", height + margin.bottom);
 
-      g.attr("transform", `translate(${margin.left}, 0)`)
+      gx.attr("transform", `translate(${margin.left}, ${height})`)
         .transition()
         .duration(500)
         .call(xAxis);
 
-      g2.attr("transform", `translate(${margin.left}, 0)`)
+      gy.attr("transform", `translate(${margin.left}, 0)`)
         .transition()
         .duration(500)
         .call(yAxis);

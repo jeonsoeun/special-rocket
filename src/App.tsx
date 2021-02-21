@@ -1,12 +1,12 @@
 /** @format */
 
-import React from "react";
+import React, { useEffect } from "react";
+import Game from "./components/Game";
 
 const App = () => {
-  const title = "Hi";
   return (
     <div className="app">
-      <div className="title">{title}</div>
+      <Game />
     </div>
   );
 };

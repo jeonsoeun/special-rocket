@@ -3,12 +3,13 @@
 export const tempData = (dataNum: number) => {
   const dataList = new Array(dataNum);
   let beforeData = 0;
-  dataList.map((value, index) => {
+  for (let index = 0; index < dataNum; index++) {
     if (index === 0) {
-      return 0;
+      dataList[index] = 0;
+      continue;
     }
-    beforeData += Math.random() * 0.5 + 0.1;
-    return beforeData;
-  });
+    beforeData = Math.random() * 0.5 + beforeData;
+    dataList[index] = beforeData;
+  }
   return dataList;
 };

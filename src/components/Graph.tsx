@@ -1,16 +1,9 @@
 /** @format */
 
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../store";
+import React, { useEffect } from "react";
 import { tempData } from "../util/tempData";
 import * as d3 from "d3";
-import { addGraphData, IDataSet } from "../store/graph";
-
-// random number function
-function random(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
+import { IDataSet } from "../store/graph";
 
 const Graph = () => {
   useEffect(() => {
@@ -48,19 +41,11 @@ const Graph = () => {
     }, 50);
     draw();
     function draw() {
-      const width = 800;
+      const width = 500;
       const height = 500;
 
-      // x.domain([0, random(width * 0.25, width + width * 0.75)]).range([
-      //   0,
-      //   width,
-      // ]);
-      // y.domain([0, random(height * 0.25, height + height * 0.75)]).range([
-      //   height,
-      //   0,
-      // ]);
-
-      const DOMAIN_WIDTH_MAX = 20;
+      const DOMAIN_WIDTH_MAX = 100;
+      const DOMAIN_HEIGHT_MAX = 25;
       // data 최대 수치가 DOMAIN_WIDTH_MAX보다 작으면 0부터, DOMAIN_WIDTH_MAX이상이면 최대수치 - DOMAIN_WIDTH_MAX부터
       const domainXStart =
         targetData.length === 0 ||
@@ -75,13 +60,13 @@ const Graph = () => {
           : targetData[targetData.length - 1].time + 0.05;
       const domainYStart =
         targetData.length === 0 ||
-        targetData[targetData.length - 1].multiple <= DOMAIN_WIDTH_MAX
+        targetData[targetData.length - 1].multiple <= DOMAIN_HEIGHT_MAX
           ? 0
-          : targetData[targetData.length - 1].multiple - DOMAIN_WIDTH_MAX;
+          : targetData[targetData.length - 1].multiple - DOMAIN_HEIGHT_MAX;
       const domainYEnd =
         targetData.length === 0 ||
-        targetData[targetData.length - 1].multiple <= DOMAIN_WIDTH_MAX
-          ? DOMAIN_WIDTH_MAX
+        targetData[targetData.length - 1].multiple <= DOMAIN_HEIGHT_MAX
+          ? DOMAIN_HEIGHT_MAX
           : targetData[targetData.length - 1].multiple + 0.05;
       x.domain([domainXStart, domainXEnd]).range([0, width]);
       y.domain([domainYStart, domainYEnd]).range([height, 0]);

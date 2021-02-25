@@ -1,6 +1,20 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.2/css/bulma.min.css';
+body {
+  background-color: #e3e3e0;
+  min-height: 100vh;
+}
 .app {
   width: 100%;
+  text-align: center;
+}
+.wrapper {
+  margin: auto;
+  width: 1200px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px 20px 100px 20px;
 }
 
-@import './round-history.scss';
 @import './betting-zone.scss';
+@import './game.scss';
+@import './round-history.scss';

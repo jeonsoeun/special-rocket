@@ -1,11 +1,13 @@
 /** @format */
 
-import { configureStore } from "@reduxjs/toolkit";
-import graphReducer from "./graph";
+import { configureStore } from '@reduxjs/toolkit';
+import balanceReducer from './balance';
+import graphReducer from './graph';
 
 const store = configureStore({
   reducer: {
     graph: graphReducer,
+    balance: balanceReducer,
   },
 });
 

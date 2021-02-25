@@ -1,6 +1,4 @@
-/** @format */
-
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export interface IDataSet {
   time: number;
@@ -16,7 +14,7 @@ const initState: IGraph = {
 };
 
 export const graphSlice = createSlice({
-  name: "graph",
+  name: 'graph',
   initialState: initState,
   reducers: {
     setGraphData: (state, action: PayloadAction<IDataSet[]>) => {

@@ -1,9 +1,9 @@
 /** @format */
 
-import React, { useEffect } from "react";
-import { tempData } from "../util/tempData";
-import * as d3 from "d3";
-import { IDataSet } from "../store/graph";
+import React, { useEffect } from 'react';
+import { tempData } from '../util/tempData';
+import * as d3 from 'd3';
+import { IDataSet } from '../store/graph';
 
 const Graph = () => {
   useEffect(() => {
@@ -15,17 +15,17 @@ const Graph = () => {
 
     const margin = { left: 50, right: 20, bottom: 20 };
 
-    const svg = d3.select("#svg-chart");
+    const svg = d3.select('#svg-chart');
 
-    const gx = svg.append("g");
-    const gy = svg.append("g");
+    const gx = svg.append('g');
+    const gy = svg.append('g');
 
     const line = d3
       .line<IDataSet>()
       .x((d) => x(d.time))
       .y((d) => y(d.multiple));
 
-    const path = svg.append("path");
+    const path = svg.append('path');
 
     const data = tempData(100);
     let count = 0;
@@ -41,8 +41,8 @@ const Graph = () => {
     }, 50);
     draw();
     function draw() {
-      const width = 500;
-      const height = 500;
+      const width = 400;
+      const height = 400;
 
       const DOMAIN_WIDTH_MAX = 100;
       const DOMAIN_HEIGHT_MAX = 25;
@@ -72,16 +72,16 @@ const Graph = () => {
       y.domain([domainYStart, domainYEnd]).range([height, 0]);
 
       svg
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.bottom);
+        .attr('width', width + margin.left + margin.right)
+        .attr('height', height + margin.bottom);
 
-      gx.attr("transform", `translate(${margin.left}, ${height})`)
+      gx.attr('transform', `translate(${margin.left}, ${height})`)
         .transition()
         .duration(100)
         .ease(d3.easeLinear)
         .call(xAxis);
 
-      gy.attr("transform", `translate(${margin.left}, 0)`)
+      gy.attr('transform', `translate(${margin.left}, 0)`)
         .transition()
         .duration(100)
         .ease(d3.easeLinear)
@@ -89,18 +89,22 @@ const Graph = () => {
 
       path
         .datum(targetData)
-        .attr("fill", "none")
-        .attr("stroke", "steelblue")
-        .attr("stroke-width", 2)
-        .attr("d", line as any)
-        .attr("transform", `translate(${margin.left}, 0)`)
+        .attr('fill', 'none')
+        .attr('stroke', 'steelblue')
+        .attr('stroke-width', 2)
+        .attr('d', line as any)
+        .attr('transform', `translate(${margin.left}, 0)`)
         .transition()
         .duration(0)
         .ease(d3.easeLinear);
     }
   }, []);
 
-  return <svg id="svg-chart"></svg>;
+  return (
+    <div className="graph">
+      <svg id="svg-chart"></svg>
+    </div>
+  );
 };
 
 export default Graph;

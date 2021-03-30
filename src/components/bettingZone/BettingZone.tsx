@@ -3,11 +3,14 @@ import React from 'react';
 const BettingZone = () => {
   return (
     <div className="betting-zone">
-      <div className="p-1">
-        <input type="text" className="input" id="betting-zone-input" />
+      <div className="bet-amount pt-1 pb-1">
+        <span>Bet Amount</span>
+        <span className="amount-input">
+          <input type="text" id="betting-zone-input" />
+        </span>
       </div>
-      <div className="p-1">
-        <button className={`button is-primary btn-bet`}>Bet</button>
+      <div className="pt-1 pb-1">
+        <button className={`button is-primary is-fullwidth`}>Bet</button>
       </div>
     </div>
   );

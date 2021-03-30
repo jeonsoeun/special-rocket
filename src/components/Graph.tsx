@@ -44,8 +44,8 @@ const Graph = () => {
       const width = 400;
       const height = 400;
 
-      const DOMAIN_WIDTH_MAX = 100;
-      const DOMAIN_HEIGHT_MAX = 25;
+      const DOMAIN_WIDTH_MAX = 30;
+      const DOMAIN_HEIGHT_MAX = 5;
       // data 최대 수치가 DOMAIN_WIDTH_MAX보다 작으면 0부터, DOMAIN_WIDTH_MAX이상이면 최대수치 - DOMAIN_WIDTH_MAX부터
       const domainXStart =
         targetData.length === 0 ||

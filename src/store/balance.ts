@@ -4,14 +4,14 @@ interface IBalance {
   fraction: number;
   amount: number;
   symbol: string;
-  strExpr: string;
+  strAmount: string;
 }
 
 const initState: IBalance = {
   fraction: 4,
   amount: 100000000,
   symbol: 'UDT',
-  strExpr: '10000.0000',
+  strAmount: '10000.0000',
 };
 
 export const balanceSlice = createSlice({

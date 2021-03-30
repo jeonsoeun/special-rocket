@@ -9,12 +9,13 @@ body {
 }
 .wrapper {
   margin: auto;
-  width: 1200px;
+  width: 1300px;
   background-color: #fff;
   border-radius: 5px;
   padding: 20px 20px 100px 20px;
 }
 
-@import './betting-zone.scss';
+@import './balance';
+@import './bet-container';
 @import './game.scss';
 @import './round-history.scss';
